@@ -1,0 +1,13 @@
+<h1>Login Page</h1>
+
+<%= form_with :url => {:action => 'authenticate'}, method: :get do %>
+  <%= label_tag :email %>
+  <%= text_field_tag :email %>
+  </br>
+  <%= label_tag :password %>
+  <%= password_field_tag :password %>
+  <br>
+  <%= submit_tag "Login" %>
+<% end %>
+
+<%= link_to "back", { :action => 'login' } %>

@@ -1,0 +1,15 @@
+<h2>Hello there, </h2>
+
+<% if session[:user_id] %>
+	<p> You are already logged in, to login from another account logout from current account. </p>
+	<%= link_to "Logout", { :action => 'logout' } %>
+<% else %>
+	<%= link_to "Login", { :action => 'login' } %>
+	</br>
+	<%= link_to "Sign Up", { :action => 'signup' } %>
+	</br>
+<% end %>
+
+<% if params[:notice] %>
+  <p class="notice"><%= params[:notice] %></p>
+<% end %>
