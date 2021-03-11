@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   root 'users#index'
-  get 'users/logout', to: 'users#logout'
-  get 'users/login', to: 'users#login'
-  get 'users/signup', to: 'users#signup'
-  get 'users/authenticate', to: 'users#authenticate'
-  resources :users
+  get 'sessions/logout', to: 'sessions#logout', as: 'logout'
+  get 'sessions/login', to: 'sessions#login', as: 'login'
+  get 'sessions/authenticate', to: 'sessions#authenticate', as: 'authenticate'
+  resources :users, only: [:create, :new, :show]
 end
