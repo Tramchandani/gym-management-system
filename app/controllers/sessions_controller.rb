@@ -1,7 +1,10 @@
 class SessionsController < ApplicationController
+  def index;  end
+
   def logout
     reset_session
-    redirect_to :action => 'index', :controller=>"users", notice: "you have logged out!"
+    flash[:notice] = "you have logged out!"
+    redirect_to root_url
     #byebug
   end
 
@@ -11,9 +14,11 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params.require(:email))
     if user&.authenticate(params[:password])  
       session[:user_id] = user.id
-      redirect_to user_path(user.id), notice: "successfully logged in!"
+      flash[:notice] = "successfully logged in!"
+      redirect_to user_path(user.id)
     else
-      redirect_to :action => 'index', :controller=>"users", notice: "login failed!!!"
+      flash[:notice] = "login failed!!!"
+      redirect_to root_url
       #byebug
     end
   end

@@ -6,3 +6,4 @@ class User < ApplicationRecord
   validates :password, length: { in: 3..20 }
   validates :password, confirmation: true
   validates :email, uniqueness: { case_sensitive: false}, format: { with: regex}
+end
