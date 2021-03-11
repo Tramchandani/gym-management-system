@@ -1,0 +1,61 @@
+<h1>Sign Up Page</h1>
+
+<%= form_for @user do |form| %>
+<!--
+  <% if @user.errors.any? %>
+    <div id="errors">
+      <h3>Errors:</h3>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+-->
+  <%= form.label :first_name %>
+  <%= form.text_field :first_name %>
+  <% if @user.errors[:first_name].any? %>
+    <%= @user.errors[:first_name] %>
+  <% end %>
+  </br>
+  </br>
+  <%= form.label :last_name %>
+  <%= form.text_field :last_name %>
+  <% if @user.errors[:last_name].any? %>
+    <%= @user.errors[:last_name] %>
+  <% end %>
+  </br>
+  </br>
+  <%= form.label :dob %>
+  <%= form.date_select :dob, start_year: 1940, end_year: Date.today.year  %>
+  <% if @user.errors[:dob].any? %>
+    <%= @user.errors[:dob] %>
+  <% end %>
+  </br>
+  </br>
+  <%= form.label :email %>
+  <%= form.text_field :email %>
+  <% if @user.errors[:email].any? %>
+    <%= @user.errors[:email] %>
+  <% end %>
+  </br>
+  </br>
+  <%= form.label :password %>
+  <%= form.password_field :password %>
+  <% if @user.errors[:password].any? %>
+    <%= @user.errors[:password] %>
+  <% end %>
+  </br>
+  </br>
+  <%= form.label :password_confirmation %>
+  <%= form.password_field :password_confirmation %>
+  <% if @user.errors[:password_confirmation].any? %>
+    <%= @user.errors[:password_confirmation] %>
+  <% end %>
+  </br>
+  </br>
+  <%= form.submit "Sign Up" %>
+<% end %>
+</br>
+<%= link_to "back", { :action => 'index' } %>
