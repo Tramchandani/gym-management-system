@@ -1,6 +1,6 @@
 <h1>Login Page</h1>
 
-<%= form_with :url => {:action => 'authenticate'}, method: :get do %>
+<%= form_with authenticate_path, method: :get do %>
   <%= label_tag :email %>
   <%= text_field_tag :email %>
   </br>
@@ -9,5 +9,4 @@
   <br>
   <%= submit_tag "Login" %>
 <% end %>
-
-<%= link_to "back", { :action => 'login' } %>
+<%= link_to "back", login_path %>

@@ -5,7 +5,6 @@ class SessionsController < ApplicationController
     reset_session
     flash[:notice] = "you have logged out!"
     redirect_to root_url
-    #byebug
   end
 
   def login;  end
@@ -19,7 +18,6 @@ class SessionsController < ApplicationController
     else
       flash[:notice] = "login failed!!!"
       redirect_to root_url
-      #byebug
     end
   end
 end
