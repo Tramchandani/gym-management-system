@@ -10,4 +10,7 @@
   <%= submit_tag "Login" %>
 <% end %>
 <br>
+<% if notice %>
+  <p><%= notice %></p>
+<% end %>
 <%= link_to "back", root_url %>
