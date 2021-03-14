@@ -1,6 +1,6 @@
 <h1>Login Page</h1>
 
-<%= form_with url: :authenticate, method: :get do %>
+<%= form_with url: authenticate_url do %>
   <%= label_tag :email %>
   <%= email_field_tag :email %>
   </br>
