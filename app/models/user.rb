@@ -5,4 +5,3 @@ class User < ApplicationRecord
   validates :password, length: { in: 3..20 },  confirmation: true
   validates :email, uniqueness: { case_sensitive: false }, format: { with: REGEX }
 end
-

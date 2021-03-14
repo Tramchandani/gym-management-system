@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
   def login;  end
 
   def authenticate
-    user = User.find_by_email(params.require(:email))
-    if user&.authenticate(params[:password])
+    user = User.find_by_email(email_param)
+    if user&.authenticate(password_param)
       session[:user_id] = user.id
       flash[:notice] = "successfully logged in!"
       redirect_to user_path(user.id)
@@ -19,5 +19,15 @@ class SessionsController < ApplicationController
       flash[:notice] = "login failed!!!"
       redirect_to login_path
     end
+  end
+
+  private
+
+  def email_param
+    params.require(:email)
+  end
+
+  def password_param
+    params.require(:password)
   end
 end
