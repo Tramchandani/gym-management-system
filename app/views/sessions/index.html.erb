@@ -1,15 +1,18 @@
-<h2>Hello there, </h2>
+<h1>GYM Management</h1>
+<div class = "front">
+  <% if session[:user_id] %>
+    <p class = "sml"> You are already logged in, to login from another account logout from current account.</p>
+    <button class = "btn btn-outline-secondary btn-block"><%= link_to "Logout", logout_path %></button>
+  <% else %>
+    <p class = "sml">Don't have an account?</p>
+    <button class = "btn btn-outline-secondary btn-block"><%= link_to "Sign Up", new_user_path %></button>
+    </br>
+    </br>  
+    <p class = "sml">Or login </p>
+    <button class = "btn btn-outline-secondary btn-block"><%= link_to "Login", login_path %></button>
+  <% end %>
 
-<% if session[:user_id] %>
-  <p> You are already logged in, to login from another account logout from current account. </p>
-  <%= link_to "Logout", logout_path %>
-<% else %>
-  <%= link_to "Login", login_path %>
-  </br>
-  <%= link_to "Sign Up", new_user_path %>
-  </br>
-<% end %>
-
-<% if notice %>
-  <p class="notice"><%= notice %></p>
-<% end %>
+  <% if notice %>
+    <p class="sml"><%= notice %></p>
+  <% end %>
+</div>

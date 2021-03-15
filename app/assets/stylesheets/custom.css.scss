@@ -1,0 +1,47 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+h1{
+  color: black;
+  font-family: Monospace;
+  text-align: center;
+}
+
+body,html { 
+  height: 100%;
+  margin: 0;
+}
+
+.bg{
+  background-image: image-url('gym2.jpg'); 
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.form-container{
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px #000;
+  width: 120%;
+}
+
+.front{
+  background-color: #fff;
+  width: 120%;
+  border: 15px;
+  padding: 30px;
+  margin: 20px;
+  box-shadow: 0px 0px 10px 0px #000;
+}
+
+.sml{
+  font-family: "Times New Roman";
+  font-size: 15px;
+}
+
+.front button{
+  display: inline-block;
+}

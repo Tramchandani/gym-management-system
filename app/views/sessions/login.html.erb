@@ -1,13 +1,17 @@
 <h1>Login Page</h1>
-
-<%= form_with url: :authenticate, method: :get do %>
-  <%= label_tag :email %>
-  <%= text_field_tag :email %>
-  </br>
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
+<div class = "form-container">
+  <%= form_with url: :authenticate do %>
+    <%= label_tag :email %>
+    <%= email_field_tag :email %>
+    </br>
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+    <br>
+    <%= submit_tag "Login" %>
+  <% end %>
   <br>
-  <%= submit_tag "Login" %>
-<% end %>
-<br>
-<%= link_to "back", root_url %>
+  <% if notice %>
+    <p><%= notice %></p>
+  <% end %>
+  <%= link_to "back", root_url %>
+</div>
