@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
   def login;  end
 
   def authenticate
-    user = User.find_by_email(attr_param('email'))
-    if user&.authenticate(attr_param('password'))
+    user = User.find_by_email(session_params[:email])
+    if user&.authenticate(session_params[:password])
       session[:user_id] = user.id
       flash[:notice] = "successfully logged in!"
       redirect_to user_path(user.id)
@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
 
   private
 
-  def attr_param(attr)
-    params.require(attr)
+  def session_params
+    params.permit(:email, :password)
   end
 end
