@@ -1,0 +1,15 @@
+<h2>Hello there, </h2>
+
+<% if session[:user_id] %>
+  <p> You are already logged in, to login from another account logout from current account. </p>
+  <%= link_to "Logout", logout_path %>
+<% else %>
+  <%= link_to "Login", login_path %>
+  </br>
+  <%= link_to "Sign Up", new_user_path %>
+  </br>
+<% end %>
+
+<% if notice %>
+  <p class="notice"><%= notice %></p>
+<% end %>

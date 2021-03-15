@@ -1,0 +1,16 @@
+<h1>Login Page</h1>
+
+<%= form_with url: authenticate_url do %>
+  <%= label_tag :email %>
+  <%= email_field_tag :email %>
+  </br>
+  <%= label_tag :password %>
+  <%= password_field_tag :password %>
+  <br>
+  <%= submit_tag "Login" %>
+<% end %>
+<br>
+<% if notice %>
+  <p><%= notice %></p>
+<% end %>
+<%= link_to "back", root_url %>

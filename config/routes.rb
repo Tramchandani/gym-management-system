@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root 'sessions#index'
+  get 'sessions/logout', to: 'sessions#logout', as: 'logout'
+  get 'sessions/login', to: 'sessions#login', as: 'login'
+  post 'sessions/authenticate', to: 'sessions#authenticate', as: 'authenticate'
+  resources :users, only: %i[create new show]
 end

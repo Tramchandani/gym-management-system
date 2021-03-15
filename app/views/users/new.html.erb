@@ -1,0 +1,31 @@
+<h1>Sign Up Page</h1>
+
+<%= form_for @user do |form| %>
+  <%= form.label :first_name %>
+  <%= form.text_field :first_name %>
+  <p class = "error"><%= show_errors(@user, :first_name) %></p>
+  </br>
+  <%= form.label :last_name %>
+  <%= form.text_field :last_name %>
+  <p class = "error"><%= show_errors(@user, :last_name) %></p>
+  </br>
+  <%= form.label :dob %>
+  <%= form.date_select :dob, start_year: 1940, end_year: Date.today.year  %>
+  <p class = "error"><%= show_errors(@user, :dob) %></p>
+  </br>
+  <%= form.label :email %>
+  <%= form.email_field :email %>
+  <p class = "error"><%= show_errors(@user, :email) %></p>
+  </br>
+  <%= form.label :password %>
+  <%= form.password_field :password %>
+  <p class = "error"><%= show_errors(@user, :password) %></p>
+  </br>
+  <%= form.label :password_confirmation %>
+  <%= form.password_field :password_confirmation %>
+  <p class = "error"><%= show_errors(@user, :password_confirmation) %></p>
+  </br>
+  <%= form.submit "Sign Up" %>
+<% end %>
+</br>
+<%= link_to "back", root_url %>
