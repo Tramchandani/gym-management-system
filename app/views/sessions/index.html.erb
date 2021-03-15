@@ -1,18 +1,13 @@
 <h1>GYM Management</h1>
 <div class = "front">
-  <% if session[:user_id] %>
+  <% if check_user?(:user_id) %>
     <p class = "sml"> You are already logged in, to login from another account logout from current account.</p>
     <button class = "btn btn-outline-secondary btn-block"><%= link_to "Logout", logout_path %></button>
   <% else %>
-    <p class = "sml">Don't have an account?</p>
     <button class = "btn btn-outline-secondary btn-block"><%= link_to "Sign Up", new_user_path %></button>
-    </br>
-    </br>  
-    <p class = "sml">Or login </p>
+    <p class = "sml">Don't have an account?</p>
     <button class = "btn btn-outline-secondary btn-block"><%= link_to "Login", login_path %></button>
+    <p class = "sml">Or login </p>
   <% end %>
-
-  <% if notice %>
-    <p class="sml"><%= notice %></p>
-  <% end %>
+  <%= render partial: "layouts/show_notice" %>
 </div>
