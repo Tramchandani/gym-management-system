@@ -1,24 +1,31 @@
-# README
+# Gym Management
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Installations:
 
-Things you may want to cover:
+Clone the repository:
+  git clone https://github.com/Tramchandani/gym-management-system.git
+  cd gym-management-system
 
-* Ruby version
+Check your ruby version:
+  ruby -v
 
-* System dependencies
+  If it outputs something like ruby 3.0.0 then ruby is already installed. If not install ruby using rbenv like:
+    rbenv install 3.0.0
 
-* Configuration
+Install dependencies
+  yarn
 
-* Database creation
+Set Environment variables using figaro:
+  add gem 'figaro' in gemfile if not present
+  then run 'bundle exec figaro install'
+  add the appropriate username and password in application.yml file
 
-* Database initialization
+Initialize the database:
+  run 'rails db:create'
+  then, 'rails db:migrate'
 
-* How to run the test suite
+Start the rails server:
+  rails s
 
-* Services (job queues, cache servers, search engines, etc.)
+Now you can visit the website with the URL http://127.0.0.1:3000
 
-* Deployment instructions
-
-* ...
