@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'home#index'
+  root 'sessions#index'
   get 'sessions/logout', to: 'sessions#logout', as: 'logout'
   get 'sessions/login', to: 'sessions#login', as: 'login'
   post 'sessions/authenticate', to: 'sessions#authenticate', as: 'authenticate'
