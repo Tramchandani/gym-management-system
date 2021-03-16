@@ -29,3 +29,7 @@ Start the rails server:
 
 Now you can visit the website with the URL http://127.0.0.1:3000
 
+Heroku App URL:
+  You can checkout the website through the following link:
+  https://shielded-cliffs-43176.herokuapp.com/
+
