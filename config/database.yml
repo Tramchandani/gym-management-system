@@ -84,4 +84,3 @@ production:
   database: gym_management_production
   username: <%= ENV["USERNAME"] %>
   password: <%= ENV["PASSWORD"] %>
-  
