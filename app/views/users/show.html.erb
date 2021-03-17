@@ -1,3 +1,33 @@
-<h1>Welcome, <%= @user.first_name %> </h1>
-<br>
-<button class = "btn btn-secondary"><%= link_to "log out", logout_path %></button>
+<%= render partial: "layouts/sidebar" %>
+
+<div class = "col-xs-12">
+  <div class = "well well-sm">
+    <div class = "user-profile-card">
+      <div class = "user-profile-header">
+      </div>
+      <div class = "user-profile-avatar text-center">
+        <img alt = "" src="<%= asset_path 'default-profile-picture.jpg' %>">
+      </div>
+      <div class = "container">
+        <p>
+          <small><strong>Name:</strong></small>
+          <%= @user.first_name %> <%= @user.last_name %>
+        </p>
+        <p>
+          <small><strong>Email:</strong></small>
+          <%= @user.email %>
+        </p>
+        <p>
+          <small><strong>Date of Birth:</strong></small>
+          <%= @user.dob %>
+        </p>
+      </div>
+      <div class = "panel-footer">
+        <button class = "btn btn-sm btn-outline-primary"><%= link_to edit_user_path(session[:user_id]) do %>
+          <i class = "glyphicon glyphicon-edit"></i> Edit My Profile</a></div>
+        </button>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%= render partial: "layouts/show_notice" %>

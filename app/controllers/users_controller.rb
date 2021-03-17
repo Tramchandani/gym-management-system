@@ -4,22 +4,66 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(signup_params) 
+    @user = User.new(user_params) 
     if @user.save 
       session[:user_id] = @user.id
-      redirect_to user_path(@user.id), notice: "signup successful"
+      flash[:notice] = "signup successful"
+      redirect_to user_path(@user.id)
     else
       render :new
     end
   end
 
   def show
-    @user = User.find_by_id(session[:user_id])   
+    @user = current_user  
+  end
+
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+    flash[:notice] = "updating profile"
+    if @user.update(user_update_params)
+      flash[:notice] = "profile updated"
+      redirect_to user_path(@user.id)
+    else
+      flash[:notice] = "profile updation failed"
+      render :edit
+    end
+  end
+
+  def edit_password
+    @user = current_user
+  end
+
+  def update_password
+    @user = current_user
+    if @user&.authenticate(password_params[:current_password]) && @user.update(password: password_params[:password], password_confirmation: password_params[:password_confirmation])
+      flash[:notice] = "password updated"
+      redirect_to user_path(@user.id)
+    else
+      flash[:notice] = "password updation failed"
+      render :edit_password
+    end
   end
 
   private
 
-  def signup_params
+  def user_params
     params.require(:user).permit(:first_name, :last_name, :dob, :email, :password, :password_confirmation)
+  end
+
+  def user_update_params
+    params.require(:user).permit(:first_name, :last_name, :dob, :email)
+  end
+
+  def password_params
+    params.require(:user_pass).permit(:password, :password_confirmation, :current_password)
+  end
+
+  def current_user
+    @current_user ||= User.find_by_id(session[:user_id])
   end
 end
