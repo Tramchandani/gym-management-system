@@ -68,7 +68,7 @@ class UsersController < ApplicationController
   end
 
   def delete_image
-    @image =  ActiveStorage::Blob.find_signed(params[:id])
+    @image =  ActiveStorage::Blob.find_signed(img_params[:id])
     @image.attachments.first.purge
     flash[:notice] = "image deleted"
     redirect_to all_images_path(session[:user_id])
@@ -90,6 +90,10 @@ class UsersController < ApplicationController
 
   def image_params
     params.require(:add_user_img).permit(:images)
+  end
+
+  def img_params
+    params.permit(:id)
   end
 
   def current_user
