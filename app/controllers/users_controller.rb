@@ -49,6 +49,31 @@ class UsersController < ApplicationController
     end
   end
 
+  def add_image; end
+
+  def upload_image
+    @user = current_user
+    if @user.images.attach(image_params[:images])
+      flash[:notice] = "image uploaded"
+      redirect_to user_path(@user.id)
+    else
+      flash[:notice] = "image upload failed"
+      render :add_image
+    end
+  end
+
+  def all_images
+    @user = current_user
+    render layout: 'empty'
+  end
+
+  def delete_image
+    @image =  ActiveStorage::Blob.find_signed(params[:id])
+    @image.attachments.first.purge
+    flash[:notice] = "image deleted"
+    redirect_to all_images_path(session[:user_id])
+  end
+
   private
 
   def user_params
@@ -61,6 +86,10 @@ class UsersController < ApplicationController
 
   def password_params
     params.require(:user_pass).permit(:password, :password_confirmation, :current_password)
+  end
+
+  def image_params
+    params.require(:add_user_img).permit(:images)
   end
 
   def current_user

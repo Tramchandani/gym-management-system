@@ -6,7 +6,11 @@
       <div class = "user-profile-header">
       </div>
       <div class = "user-profile-avatar text-center">
-        <img alt = "" src="<%= asset_path 'default-profile-picture.jpg' %>">
+        <% if @user.images.attached? %>
+          <%= link_to image_tag(@user.images.last), all_images_path(session[:user_id]) %>
+        <% else %>
+          <%= image_tag "default-profile-picture.jpg" %>
+        <% end %>
       </div>
       <div class = "container">
         <p>
@@ -24,10 +28,15 @@
       </div>
       <div class = "panel-footer">
         <button class = "btn btn-sm btn-outline-primary"><%= link_to edit_user_path(session[:user_id]) do %>
-          <i class = "glyphicon glyphicon-edit"></i> Edit My Profile</a></div>
-        </button>
-      <% end %>
+          <i class = "glyphicon glyphicon-edit"></i> Edit My Profile
+        <% end %></button>
+      </div>
+      <div class = "panel-footer">
+        <button class = "btn btn-sm btn-outline-primary"><%= link_to add_image_path(session[:user_id]) do %>
+          <i class = "glyphicon glyphicon-edit"></i> Add new photo
+        <% end %></button>
+      </div>
     </div>
   </div>
+  <%= render partial: "layouts/show_notice" %>
 </div>
-<%= render partial: "layouts/show_notice" %>
