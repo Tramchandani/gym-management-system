@@ -10,6 +10,7 @@
   background-image: image-url('blank.jpg'); 
   background-size: cover;
   height: 135px;
+  width: 400px;
 }
 
 .user-profile-card .user-profile-avatar {

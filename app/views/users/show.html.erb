@@ -12,7 +12,7 @@
           <%= image_tag "default-profile-picture.jpg" %>
         <% end %>
       </div>
-      <div class = "container">
+      <div class = "container-fluid">
         <p>
           <small><strong>Name:</strong></small>
           <%= @user.first_name %> <%= @user.last_name %>
@@ -25,6 +25,28 @@
           <small><strong>Date of Birth:</strong></small>
           <%= @user.dob %>
         </p>
+        <% if @user.addresses.any? %>
+          <p>
+            <small><strong>Addresses:</strong></small><p></p>
+            <ul>
+            <% @user.addresses.each do |address| %>
+              <li><%= address.house_number %>, <%= address.colony %> <%= address.street %> <%= address.city %>, <%= address.state %></br>
+                <%= link_to edit_address_path(address.id) do %>
+                  <i class = "glyphicon glyphicon-edit" ></i> 
+                <% end %>
+                <%= link_to address_path(address.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <i class = "glyphicon glyphicon-trash" ></i> 
+                <% end %>
+              </li>
+            <% end %>
+            </ul>
+          </p>
+        <% end %>
+      </div>
+      <div class = "panel-footer">
+        <button class = "btn btn-sm btn-outline-primary"><%= link_to new_user_address_path(session[:user_id]) do %>
+          <i class = "glyphicon glyphicon-edit"></i> Add address
+        <% end %></button>
       </div>
       <div class = "panel-footer">
         <button class = "btn btn-sm btn-outline-primary"><%= link_to edit_user_path(session[:user_id]) do %>
@@ -37,6 +59,6 @@
         <% end %></button>
       </div>
     </div>
+    <%= render partial: "layouts/show_notice" %>
   </div>
-  <%= render partial: "layouts/show_notice" %>
 </div>

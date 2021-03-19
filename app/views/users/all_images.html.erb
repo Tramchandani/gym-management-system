@@ -6,9 +6,9 @@
   <div class="row photos">
     <% if @user.images.attached? %>
       <% @user.images.each do |img| %>
-      <div class="col-sm-4 col-md-4 col-sm-4 item"><%= image_tag img, class: "style-img" %>
-        <button class = "del btn"><%= link_to "Delete Image", delete_image_path(img.signed_id), method: :delete, data: { confirm: 'Are you sure?' }, class: "colorit" %></button>
-      </div>
+        <div class="col-sm-4 col-md-4 col-sm-4 item"><%= image_tag img, class: "style-img" %>
+          <button class = "del btn"><%= link_to "Delete Image", delete_image_path(img.signed_id), method: :delete, data: { confirm: 'Are you sure?' }, class: "colorit" %></button>
+        </div>
       <% end %>
     <% end %>
     <div class = "pos">
