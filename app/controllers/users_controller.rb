@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  before_action :current_user
-  skip_before_action :current_user, only: [:new, :create]
+  before_action :current_user, except: %i[new create]
 
   def new
     @user = User.new
