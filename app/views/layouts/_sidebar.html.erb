@@ -1,31 +1,36 @@
-<div id="sidebar">
-  <header>
-    <a href="#">Gym Management</a>
-  </header>
-  <ul class="nav">
-    <li>
-      <%= link_to user_path(session[:user_id]) do%>
-        <i class="zmdi zmdi-account"></i> 
-        View Profile
-      <% end %>
-    </li>
-    <li>
-      <%= link_to edit_user_path(session[:user_id]) do%>
-        <i class="zmdi zmdi-edit"></i> 
-        Edit Profile
-      <% end %>
-    </li>
-    <li>
-      <%= link_to edit_password_path(session[:user_id]) do%>
-        <i class="zmdi zmdi-key"></i> 
-        Edit Password
-      <% end %>
-    </li>
-    <li>
-      <%= link_to logout_path do%>
-        <i class="glyphicon glyphicon-log-out"></i>
-        Logout
-      <% end %>
-    </li>
-  </ul>
+<div class="wrapper d-flex">
+  <div class="sidebar"> <small class="text-muted pl-3">User</small>
+    <ul>
+      <li> 
+        <%= link_to user_path(session[:user_id]) do%>
+          <i class = "zmdi zmdi-account-o"> </i> 
+          View Profile
+        <% end %>
+      </li>
+      <li>
+        <%= link_to edit_user_path(session[:user_id]) do%>
+          <i class = "zmdi zmdi-border-color"> </i> 
+          Edit Profile
+        <% end %>
+      </li>
+      <li>
+        <%= link_to edit_password_path(session[:user_id]) do%>
+          <strong><i class="zmdi zmdi-lock"></strong></i> 
+          Edit Password
+        <% end %>
+      </li>
+      <li>
+        <%= link_to all_images_path(session[:user_id]) do%>
+          <i class = "zmdi zmdi-book-image"> </i>
+          Image Gallery
+        <% end %>
+      </li>
+      <li>
+        <%= link_to logout_path do%>
+          <i class = "zmdi zmdi-long-arrow-return"> </i>
+          Logout
+        <% end %>
+      </li>
+    </ul>
+  </div>
 </div>

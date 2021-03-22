@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_action :current_user, except: %i[new create]
+
   def new
     @user = User.new
   end
@@ -15,16 +18,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
+    render layout: 'empty'
   end
 
-  def edit
-    @user = current_user
-  end
+  def edit;  end
 
   def update
-    @user = current_user
-    flash[:notice] = "updating profile"
     if @user.update(user_update_params)
       flash[:notice] = "profile updated"
       redirect_to user_path(@user.id)
@@ -34,13 +33,10 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit_password
-    @user = current_user
-  end
+  def edit_password;  end
 
   def update_password
-    @user = current_user
-    if @user&.authenticate(password_params[:current_password]) && @user.update(password: password_params[:password], password_confirmation: password_params[:password_confirmation])
+    if @user&.authenticate(password_params[:current_password]) && confirm_update
       flash[:notice] = "password updated"
       redirect_to user_path(@user.id)
     else
@@ -52,7 +48,6 @@ class UsersController < ApplicationController
   def add_image; end
 
   def upload_image
-    @user = current_user
     if @user.images.attach(image_params[:images])
       flash[:notice] = "image uploaded"
       redirect_to user_path(@user.id)
@@ -63,7 +58,6 @@ class UsersController < ApplicationController
   end
 
   def all_images
-    @user = current_user
     render layout: 'empty'
   end
 
@@ -97,6 +91,10 @@ class UsersController < ApplicationController
   end
 
   def current_user
-    @current_user ||= User.find_by_id(session[:user_id])
+    @user ||= User.find_by_id(session[:user_id])
+  end
+
+  def confirm_update
+    @user.update(password: password_params[:password], password_confirmation: password_params[:password_confirmation])
   end
 end

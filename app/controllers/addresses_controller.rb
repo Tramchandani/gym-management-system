@@ -1,8 +1,12 @@
 class AddressesController < ApplicationController
+
+  before_action :current_address, except: %i[new create]
+
   def new
     @user = current_user
     @address = Address.new
   end
+
 
   def create
     @user = current_user
@@ -15,12 +19,9 @@ class AddressesController < ApplicationController
     end
   end
 
-  def edit
-    @address = Address.find_by_id(params[:id])
-  end
+  def edit;  end
 
   def update
-    @address = Address.find_by_id(params[:id])
     if @address.update(address_params)
       flash[:notice] = "Address Updated"
       redirect_to user_path(session[:user_id])
@@ -31,7 +32,7 @@ class AddressesController < ApplicationController
   end
 
   def destroy
-    Address.find_by_id(params[:id]).destroy
+    @address.destroy
     redirect_to user_path(session[:user_id])
   end
 
@@ -41,7 +42,15 @@ class AddressesController < ApplicationController
     params.require(:address).permit(:house_number, :colony, :street, :city, :state)
   end
 
+  def id_param
+    params.permit(:id)
+  end
+
   def current_user
     @current_user ||= User.find_by_id(session[:user_id])
+  end
+
+  def current_address
+    @address = Address.find_by_id(id_param[:id])
   end
 end
