@@ -1,75 +1,83 @@
 @import 'bootstrap/dist/css/bootstrap';
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: arial
+}
 
 body {
-  overflow-x: hidden;
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
+    background: #f3f5f9
 }
 
-/* Toggle Styles */
-
-#viewport {
-  padding-left: 250px;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+.wrapper {
+    position: relative
 }
 
-#content {
-  width: 100%;
-  position: relative;
-  margin-right: 0;
-}
-
-/* Sidebar Styles */
-
-#sidebar {
+.sidebar {
   z-index: 1000;
-  position: fixed;
-  left: 250px;
-  width: 200px;
-  height: 100%;
-  margin-left: -250px;
-  overflow-y: auto;
-  background: #37474F;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+    position: fixed;
+    left: 250px;
+    width: 200px;
+    height: 100%;
+    margin-left: -250px;
+    background: #000000e0;
+    padding: 20px 0
 }
 
-#sidebar header {
-  background-color: #263238;
-  font-size: 20px;
-  line-height: 52px;
-  text-align: center;
+.text-muted {
+    color: #adb5bd !important
 }
 
-#sidebar header a {
-  color: #fff;
-  display: block;
-  text-decoration: none;
+ul {
+    padding-bottom: 20px
 }
 
-#sidebar header a:hover {
-  color: #fff;
+ul li a img {
+    background: #66BB6A;
+    top: 0;
+    border: none;
+    width: 20px
 }
 
-#sidebar .nav a {
-  background: none;
-  border-bottom: 1px solid #455A64;
-  color: #CFD8DC;
-  font-size: 14px;
-  padding: 16px 24px;
+.sidebar ul li {
+    padding: 15px
 }
 
-#sidebar .nav a:hover {
-  background: none;
-  color: #ECEFF1;
+.sidebar ul li a {
+    color: #fff;
+    display: block
 }
 
-#sidebar .nav a i {
-  margin-right: 16px;
+.sidebar ul li a .fas {
+    width: 30px;
+    color: #bdb8d7 !important
 }
+
+i.fas.fa-home:hover,
+i.fas.fa-file-invoice:hover,
+i.fas.fa-video:hover,
+i.fas.fa-id-badge:hover,
+i.fas.fa-external-link-alt:hover,
+i.fas.fa-code:hover,
+i.far.fa-calendar-alt:hover,
+i.far.fa-credit-card:hover {
+    color: #304FFE !important
+}
+
+.sidebar ul li a .far {
+    width: 30px;
+    color: #bdb8d7 !important
+}
+
+.sidebar ul li:hover {
+    background: #000
+}
+
+.sidebar ul li a:hover {
+    text-decoration: none
+}
+

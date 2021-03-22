@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   before_action :current_user, except: %i[new create]
 
   def new
@@ -16,7 +17,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def show;  end
+  def show
+    render layout: 'empty'
+  end
 
   def edit;  end
 
@@ -45,7 +48,6 @@ class UsersController < ApplicationController
   def add_image; end
 
   def upload_image
-    @user = current_user
     if @user.images.attach(image_params[:images])
       flash[:notice] = "image uploaded"
       redirect_to user_path(@user.id)
@@ -56,8 +58,7 @@ class UsersController < ApplicationController
   end
 
   def all_images
-    @user = current_user
-    render layout: 'empty'
+    render layout: 'empty2'
   end
 
   def delete_image
@@ -97,3 +98,4 @@ class UsersController < ApplicationController
     @user.update(password: password_params[:password], password_confirmation: password_params[:password_confirmation])
   end
 end
+
