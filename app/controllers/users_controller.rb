@@ -16,7 +16,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def show;  end
+  def show
+    render layout: 'empty'
+  end
 
   def edit;  end
 
