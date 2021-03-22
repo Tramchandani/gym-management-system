@@ -58,7 +58,7 @@ class UsersController < ApplicationController
   end
 
   def all_images
-    render layout: 'empty'
+    render layout: 'empty2'
   end
 
   def delete_image
