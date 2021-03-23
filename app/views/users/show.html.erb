@@ -1,3 +1,60 @@
-<h1>Welcome, <%= @user.first_name %> </h1>
-<br>
-<button class = "btn btn-secondary"><%= link_to "log out", logout_path %></button>
+<%= render partial: "layouts/sidebar" %>
+<div class="container">
+  <div class="main-body">
+    <div class="row gutters-sm">
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex flex-column align-items-center text-center">
+              <%= image_tag "default-profile-picture.jpg", class: "rounded-circle dimensions" %>
+              <div class="mt-3">
+                <h4><%= @user.first_name %> <%= @user.last_name %></h4>
+              </div>
+            </div>
+          </div>
+        </div> 
+      </div>
+      <div class="col-md-8">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Full Name</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <%= @user.first_name %> <%= @user.last_name %>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Email</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <%= @user.email %>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Date of Birth</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <%= @user.dob %>
+              </div>
+            </div>
+            <hr>
+            <div class="mt-3">
+              <span class="float-right"><button class = "btn btn-sm btn-outline-primary"><%= link_to edit_user_path(session[:user_id]) do %>
+                <i class = "glyphicon glyphicon-picture"></i> Edit Profile
+                  <% end %>
+                </button>
+              </span>
+            </div>
+            <%= render partial: "layouts/show_notice" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

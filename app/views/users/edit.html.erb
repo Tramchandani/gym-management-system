@@ -1,0 +1,26 @@
+<%= render partial: "layouts/sidebar" %>
+<h1>Edit details</h1>
+<div class = "form-container">
+  <%= form_for @user, url: user_path(@user) do |form| %>
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+    <p class = "error"><%= show_errors(@user, :first_name) %></p>
+
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+    <p class = "error"><%= show_errors(@user, :last_name) %></p>
+
+    <%= form.label :dob %>
+    <%= form.date_select :dob, start_year: 1940, end_year: Date.today.year  %>
+    <p class = "error"><%= show_errors(@user, :dob) %></p>
+
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+    <p class = "error"><%= show_errors(@user, :email) %></p>
+    
+    <%= form.submit "Update", class: 'btn btn-primary btn-block' %>
+  <% end %>
+  <%= link_to "back", user_path(session[:user_id]) %>
+  <%= render partial: "layouts/show_notice" %>
+  <%= render partial: "layouts/display_error" %>
+</div>
