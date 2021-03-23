@@ -1,14 +1,13 @@
 if(jQuery().fancybox) {
-$(document).ready(function(){
-  $(".fancybox").fancybox({
+  $(document).ready(function(){
+    $(".fancybox").fancybox({
       openEffect: "none",
       closeEffect: "none"
     });
     $(".zoom").hover(function(){
-    $(this).addClass('transition');
-  }, function(){   
-    $(this).removeClass('transition');
+      $(this).addClass('transition');
+    }, function(){   
+      $(this).removeClass('transition');
+    });
   });
-});
 }
-

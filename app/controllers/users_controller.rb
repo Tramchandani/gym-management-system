@@ -57,7 +57,8 @@ class UsersController < ApplicationController
   end
 
   def all_images
-    render layout: 'empty2'
+    @flag = true
+    render layout: 'empty'
   end
 
   def delete_image
@@ -95,6 +96,10 @@ class UsersController < ApplicationController
 
   def confirm_update
     @user.update(password: password_params[:password], password_confirmation: password_params[:password_confirmation])
+  end
+
+  def flag
+    @flag = false
   end
 end
 

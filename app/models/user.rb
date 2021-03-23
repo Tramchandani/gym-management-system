@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: { case_sensitive: false }, format: { with: REGEX }
 
   private
-  
+
   def should_validate_password?
     new_record? || password.present?
   end
