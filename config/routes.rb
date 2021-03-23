@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   get 'users/add_image/:id', to: 'users#add_image', as: 'add_image'
   post 'users/upload_image', to: 'users#upload_image', as: 'upload_image'
   get 'users/all_images/:id', to: 'users#all_images', as: 'all_images'
-  delete 'users/delete_image/:id', to: 'users#delete_image', as: 'delete_image'
+  delete 'users/delete_image/:id', to: 'users#delete_image', as: 'delete_image' 
 end

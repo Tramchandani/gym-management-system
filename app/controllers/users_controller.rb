@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   before_action :current_user, except: %i[new create]
 
   def new

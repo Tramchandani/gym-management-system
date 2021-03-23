@@ -1,8 +1,8 @@
 <div class="wrapper d-flex">
   <div class="sidebar"> <small class="text-muted pl-3">User</small>
     <ul>
-      <li> 
-        <%= link_to user_path(session[:user_id]) do%>
+      <li>
+        <%= link_to user_path(session[:user_id]) do %>
           <i class = "zmdi zmdi-account-o"> </i> 
           View Profile
         <% end %>
@@ -14,7 +14,7 @@
         <% end %>
       </li>
       <li>
-        <%= link_to edit_password_path(session[:user_id]) do%>
+        <%= link_to edit_password_path(session[:user_id]) do %>
           <strong><i class="zmdi zmdi-lock"></strong></i> 
           Edit Password
         <% end %>
@@ -34,4 +34,3 @@
     </ul>
   </div>
 </div>
-
