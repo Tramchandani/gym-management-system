@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-
   before_action :current_user, except: %i[new create]
+  helper_method :flag
 
   def new
     @user = User.new
@@ -58,7 +58,7 @@ class UsersController < ApplicationController
   end
 
   def all_images
-    render layout: 'empty2'
+    render layout: 'empty'
   end
 
   def delete_image
