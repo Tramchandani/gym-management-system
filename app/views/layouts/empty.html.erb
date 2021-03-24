@@ -10,10 +10,8 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <div class = "bg" >
-      <div class = "container-fluid">
+    <div class = "<%= 'bg' unless params[:action] == "all_images" %> container-fluid">
       <%= yield %>
     </div>
-  </div>
   </body>
 </html>
