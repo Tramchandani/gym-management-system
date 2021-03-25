@@ -45,10 +45,6 @@ class AddressesController < ApplicationController
     params.permit(:id)
   end
 
-  def current_user
-    @current_user ||= User.find_by_id(session[:user_id])
-  end
-
   def current_address
     @address = Address.find_by_id(id_param[:id])
   end
