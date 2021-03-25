@@ -36,10 +36,6 @@ class CartsController < ApplicationController
     end
   end
 
-  def current_user
-    @user ||= User.find_by_id(session[:user_id])
-  end
-
   def exercise_id_params
     params.permit(:id)
   end

@@ -7,7 +7,6 @@ class AddressesController < ApplicationController
     @address = Address.new
   end
 
-
   def create
     @user = current_user
     if @user.addresses.create(address_params)
