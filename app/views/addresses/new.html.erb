@@ -1,7 +1,7 @@
 <%= render partial: "layouts/sidebar" %>
 <h1>Add address</h1>
 <div class = "form-container">
-  <%= render partial: "layouts/address_form", locals: {submit_text: "Add Address"} %>
+  <%= render partial: "shared/address_form", locals: {submit_text: "Add Address"} %>
   <%= link_to "back", user_path(session[:user_id]) %>
   <%= render partial: "layouts/show_notice" %>
 </div>
