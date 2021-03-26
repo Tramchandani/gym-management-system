@@ -1,0 +1,4 @@
+<%= render partial: 'layouts/sidebar' %>
+<h3>Sorry,</h3>
+<p>The address you requested is invalid or does not belong to you</p>
+<%= link_to "back", user_path(session[:user_id]) %>
