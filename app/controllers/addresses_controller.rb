@@ -47,5 +47,6 @@ class AddressesController < ApplicationController
 
   def current_address
     @address = current_user.addresses.find_by_id(id_param[:id])
+    raise ActiveRecord::RecordNotFound.new('Invalid Address') if @address.nil?
   end
 end
