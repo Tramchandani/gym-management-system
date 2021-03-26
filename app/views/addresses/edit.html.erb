@@ -1,0 +1,9 @@
+<%= render partial: "layouts/sidebar" %>
+<h1>Update address</h1> 
+<div class = "form-container">
+  <%= form_for @address do |form| %>
+    <%= render partial: "shared/address_form", locals: { form: form } %>
+    <%= form.submit "Edit address", class: 'btn btn-primary btn-block' %>
+  <% end %>
+  <%= link_to "back", user_path(session[:user_id]) %>
+</div> 
