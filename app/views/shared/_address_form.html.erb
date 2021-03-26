@@ -1,4 +1,4 @@
-<%= form_for [@user, @address] do |form| %>
+
 <%= form.label :house_number %>
 <%= form.number_field :house_number %>
 <p class = "error"><%= show_errors(@address, :house_number) %></p>
@@ -18,5 +18,3 @@
 <%= form.label :state %>
 <%= form.text_field :state %>
 <p class = "error"><%= show_errors(@address, :state) %></p>
-<%= form.submit submit_text, class: 'btn btn-primary btn-block' %>
-<% end %>

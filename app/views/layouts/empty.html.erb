@@ -13,5 +13,6 @@
     <div class = "<%= 'bg' unless params[:action] == "all_images" %> container-fluid">
       <%= yield %>
     </div>
+    <%= render partial: 'layouts/show_notice' %>
   </body>
 </html>
