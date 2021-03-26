@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get 'sessions/logout', to: 'sessions#logout', as: 'logout'
   get 'sessions/login', to: 'sessions#login', as: 'login'
   post 'sessions/authenticate', to: 'sessions#authenticate', as: 'authenticate'
-
   resources :users, except: :destroy do
     resources :addresses, except: :show, shallow: true
   end
@@ -13,5 +12,4 @@ Rails.application.routes.draw do
   post 'users/upload_image', to: 'users#upload_image', as: 'upload_image'
   get 'users/images/:id', to: 'users#all_images', as: 'all_images'
   delete 'users/images/:id', to: 'users#delete_image', as: 'delete_image'
-  get 'addresses/error', to: 'addresses#error'
 end

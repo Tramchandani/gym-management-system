@@ -35,8 +35,6 @@ class AddressesController < ApplicationController
     redirect_to user_path(session[:user_id])
   end
 
-  def error; end
-
   private
 
   def address_params
@@ -49,7 +47,6 @@ class AddressesController < ApplicationController
 
   def current_address
     @address = current_user.addresses.find_by_id(id_param[:id])
-    redirect_to action: :error if @address.nil?
+    render 'error' and return if @address.nil?
   end
-
 end
