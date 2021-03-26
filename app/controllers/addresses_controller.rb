@@ -1,6 +1,6 @@
 class AddressesController < ApplicationController
 
-  before_action :current_address, except: %i[new create]
+  before_action :current_address, except: %i[new create error]
 
   def new
     @user = current_user
@@ -35,6 +35,8 @@ class AddressesController < ApplicationController
     redirect_to user_path(session[:user_id])
   end
 
+  def error; end
+
   private
 
   def address_params
@@ -47,6 +49,7 @@ class AddressesController < ApplicationController
 
   def current_address
     @address = current_user.addresses.find_by_id(id_param[:id])
-    raise ActiveRecord::RecordNotFound.new('Invalid Address') if @address.nil?
+    redirect_to action: :error if @address.nil?
   end
+
 end
