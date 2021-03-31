@@ -10,7 +10,6 @@ class UsersController < ApplicationController
     if @user.save 
       session[:user_id] = @user.id
       flash[:notice] = "signup successful"
-      @user.mail
       redirect_to user_path(@user.id)
     else
       render :new
