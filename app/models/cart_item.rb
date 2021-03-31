@@ -1,4 +1,4 @@
-class ExerciseInCart < ApplicationRecord
+class CartItem < ApplicationRecord
   belongs_to :cart
   belongs_to :exercise
 end

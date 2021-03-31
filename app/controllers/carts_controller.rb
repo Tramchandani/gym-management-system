@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
-  before_action :current_user
-  before_action :current_cart
+  before_action :user_cart
+  before_action :selected_exercise
 
   def index
     @exercises = @cart.exercises
@@ -8,8 +8,7 @@ class CartsController < ApplicationController
   end
 
   def add_to_cart
-    exercise = Exercise.find_by_id(exercise_id_params[:id])
-    if @cart.exercises << exercise
+    if @cart.exercises << @exercise
       flash[:notice] = "Added to cart"
     else
       flash[:notice] = "could not be added to cart"
@@ -18,7 +17,7 @@ class CartsController < ApplicationController
   end
 
   def destroy
-    if @cart.exercises.destroy(Exercise.find_by_id(exercise_id_params[:id]))
+    if @cart.exercises.destroy(@exercise)
       flash[:notice] = "Removed from cart"
     else
       flash[:notice] = "could not remove from cart"
@@ -28,19 +27,15 @@ class CartsController < ApplicationController
 
   private
 
-  def current_cart
-    if @user.cart.nil?
-      @cart = @user.create_cart
-    else
-      @cart = @user.cart
-    end
-  end
-
-  def current_user
-    @user ||= User.find_by_id(session[:user_id])
+  def user_cart
+    @cart = current_user.cart
   end
 
   def exercise_id_params
     params.permit(:id)
+  end
+
+  def selected_exercise
+    @exercise = Exercise.find_by_id(exercise_id_params[:id])
   end
 end
