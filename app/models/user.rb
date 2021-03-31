@@ -6,6 +6,10 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { in: 3..20 }, confirmation: true, if: :should_validate_password?
   validates :email, uniqueness: { case_sensitive: false }, format: { with: REGEX }
 
+  def mail
+    UserMailer.with(user: self).welcome_email.deliver_later
+  end
+
   private
 
   def should_validate_password?

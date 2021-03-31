@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     if @user.save 
       session[:user_id] = @user.id
       flash[:notice] = "signup successful"
-      UserMailer.with(user: @user).welcome_email.deliver_later
+      @user.mail
       redirect_to user_path(@user.id)
     else
       render :new
@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user.mail
     render layout: 'empty'
   end
 
