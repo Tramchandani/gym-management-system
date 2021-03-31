@@ -1,0 +1,21 @@
+<%= render partial: "layouts/sidebar" %>
+<h1>Add New Exercise</h1>
+
+<div class = "form-container">
+  <%= form_for @exercise do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+    <p class = "error"><%= show_errors(@exercise, :name) %></p>
+
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+    <p class = "error"><%= show_errors(@exercise, :price) %></p>
+
+    <%= form.label :description %>
+    <%= form.text_area :description  %>
+    <p class = "error"><%= show_errors(@exercise, :description) %></p>
+    
+    <%= form.submit "Add Exercise", class: 'btn btn-primary btn-block' %>
+  <% end %>
+  <%= link_to "back", exercises_path %>
+</div>

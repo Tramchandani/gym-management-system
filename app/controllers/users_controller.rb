@@ -10,7 +10,6 @@ class UsersController < ApplicationController
     if @user.save 
       session[:user_id] = @user.id
       flash[:notice] = "signup successful"
-      EmailJob.perform_later @user
       redirect_to user_path(@user.id)
     else
       render :new
@@ -90,13 +89,7 @@ class UsersController < ApplicationController
     params.permit(:id)
   end
 
-  def current_user
-    @user ||= User.find_by_id(session[:user_id])
-  end
-
   def confirm_update
     @user.update(password: password_params[:password], password_confirmation: password_params[:password_confirmation])
   end
-
 end
-
