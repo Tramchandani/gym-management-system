@@ -18,7 +18,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user.mail
     render layout: 'empty'
   end
 
