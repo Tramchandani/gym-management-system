@@ -1,40 +1,40 @@
 @import 'bootstrap/dist/css/bootstrap';
 
 body {
-    background: #eee
+  background: #eee
 }
 
 .ratings i {
-    font-size: 16px;
-    color: red
+  font-size: 16px;
+  color: red
 }
 
 
 .dot {
-    height: 7px;
-    width: 7px;
-    margin-left: 6px;
-    margin-right: 6px;
-    margin-top: 3px;
-    background-color: blue;
-    border-radius: 50%;
-    display: inline-block
+  height: 7px;
+  width: 7px;
+  margin-left: 6px;
+  margin-right: 6px;
+  margin-top: 3px;
+  background-color: blue;
+  border-radius: 50%;
+  display: inline-block
 }
 
 .spec-1 {
-    color: #938787;
-    font-size: 15px
+  color: #938787;
+  font-size: 15px
 }
 
 h5 {
-    font-weight: 400
+  font-weight: 400
 }
 
 .para {
-    font-size: 16px
+  font-size: 16px
 }
 
 .spacing {
-    padding-left: 10px;
-    margin-left: 10px;
+  padding-left: 10px;
+  margin-left: 10px;
 }
