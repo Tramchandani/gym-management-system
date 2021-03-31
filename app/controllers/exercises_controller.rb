@@ -1,5 +1,5 @@
 class ExercisesController < ApplicationController
-  before_action :current_exercise, except: %i[new create index]
+  before_action :load_exercise, except: %i[new create index]
 
   def index
     @exercises = Exercise.all
@@ -50,7 +50,8 @@ class ExercisesController < ApplicationController
     params.permit(:id)
   end
 
-  def current_exercise
+  def load_exercise
     @exercise = Exercise.find_by_id(id_param[:id])
+    render 'error' and return if @exercise.nil?
   end
 end

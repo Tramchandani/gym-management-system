@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :current_user, except: %i[new create]
-  helper_method :flag
 
   def new
     @user = User.new
@@ -88,10 +87,6 @@ class UsersController < ApplicationController
 
   def img_params
     params.permit(:id)
-  end
-
-  def current_user
-    @user ||= User.find_by_id(session[:user_id])
   end
 
   def confirm_update
