@@ -16,8 +16,4 @@ module ApplicationHelper
     @full_address.concat(address.street).concat(" ").concat(address.city).concat(", ")
     @full_address.concat(address.state)
   end
-
-  def current_user
-    User.find_by_id(session[:user_id])
-  end
 end
