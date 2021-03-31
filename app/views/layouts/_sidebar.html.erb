@@ -1,5 +1,5 @@
 <div class = "wrapper d-flex">
-  <div class = "sidebar"><small class="text-muted pl-3">User</small>
+  <div class = "sidebar"><small class = "text-muted pl-3">User</small>
     <ul>
       <li>
         <%= link_to user_path(session[:user_id]) do %>
@@ -15,7 +15,7 @@
       </li>
       <li>
         <%= link_to edit_password_path(session[:user_id]) do %>
-          <strong><i class = "zmdi zmdi-lock"></strong></i> 
+          <strong><i class = "zmdi zmdi-lock"> </i></strong>
           Edit Password
         <% end %>
       </li>
@@ -23,6 +23,12 @@
         <%= link_to all_images_path(session[:user_id]) do %>
           <i class = "zmdi zmdi-book-image"> </i>
           Image Gallery
+        <% end %>
+      </li>
+      <li>
+        <%= link_to exercises_path do %>
+          <i class = "zmdi zmdi-bike"> </i>
+          Exercises
         <% end %>
       </li>
       <li>
