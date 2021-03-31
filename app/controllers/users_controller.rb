@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   before_action :current_user, except: %i[new create]
 
   def new
@@ -58,7 +57,7 @@ class UsersController < ApplicationController
   end
 
   def all_images
-    render layout: 'empty2'
+    render layout: 'empty'
   end
 
   def delete_image
@@ -88,10 +87,6 @@ class UsersController < ApplicationController
 
   def img_params
     params.permit(:id)
-  end
-
-  def current_user
-    @user ||= User.find_by_id(session[:user_id])
   end
 
   def confirm_update
