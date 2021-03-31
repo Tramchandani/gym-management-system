@@ -3,7 +3,7 @@
 <div class = "form-container">
   <%= form_for [@user, @address] do |form| %>
     <%= render partial: "shared/address_form", locals: { form: form } %>
-    <%= form.submit "Add address", class: 'btn btn-primary btn-block' %>
+    <%= form.submit "Add address", data: { disable_with: "Saving..." }, class: 'btn btn-primary btn-block' %>
   <% end %>
   <%= link_to "back", user_path(session[:user_id]) %>
 </div> 

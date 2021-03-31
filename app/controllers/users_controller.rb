@@ -44,7 +44,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def add_image; end
+  def add_image;  end
 
   def upload_image
     if @user.images.attach(image_params[:images])

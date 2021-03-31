@@ -6,7 +6,7 @@ class User < ApplicationRecord
   validates :first_name, :email, presence: true
   validates :password, presence: true, length: { in: 3..20 }, confirmation: true, if: :should_validate_password?
   validates :email, uniqueness: { case_sensitive: false }, format: { with: REGEX }
-
+  
   private
 
   def should_validate_password?
