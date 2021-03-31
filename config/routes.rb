@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   post 'users/upload_image', to: 'users#upload_image', as: 'upload_image'
   get 'users/images/:id', to: 'users#all_images', as: 'all_images'
   delete 'users/images/:id', to: 'users#delete_image', as: 'delete_image'
+  resources :exercises
 end

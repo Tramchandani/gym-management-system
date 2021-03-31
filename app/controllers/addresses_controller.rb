@@ -1,5 +1,5 @@
 class AddressesController < ApplicationController
-  before_action :current_address, except: %i[new create error]
+  before_action :current_address, except: %i[new create]
 
   def new
     @user = current_user
