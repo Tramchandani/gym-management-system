@@ -3,9 +3,16 @@ class User < ApplicationRecord
   has_secure_password
   has_many :addresses, dependent: :destroy
   has_many_attached :images, dependent: :destroy
+  has_one :cart, dependent: :destroy
   validates :first_name, :email, presence: true
   validates :password, presence: true, length: { in: 3..20 }, confirmation: true, if: :should_validate_password?
   validates :email, uniqueness: { case_sensitive: false }, format: { with: REGEX }
+  after_create :create_user_cart
+
+  def in_cart?(exercise)
+    cart = self.cart 
+    cart.exercises.exists?(exercise.id)
+  end
   after_create :send_mail
 
   private
@@ -13,6 +20,9 @@ class User < ApplicationRecord
   def should_validate_password?
     new_record? || password.present?
   end
+
+  def create_user_cart
+    user.create_cart
 
   def send_mail
     EmailJob.perform_later self
