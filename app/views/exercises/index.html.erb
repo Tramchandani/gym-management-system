@@ -22,7 +22,7 @@
               <button class="btn btn-outline-primary btn-sm col-sm-5" type = "button"><%= link_to "Delete", exercise_path(exercise.id), method: :delete %></button>
             </div>
             <div class = "d-flex flex-column mt-4">
-              <% if in_cart?(exercise) %>
+              <% if current_user.in_cart?(exercise) %>
                 <button class = "btn btn-primary btn-sm " type = "button"><%= link_to "Remove from Cart", destroy_exercise_in_cart_path(exercise.id), method: :delete, class: "textcolor" %>
                 </button>
               <% else %>
