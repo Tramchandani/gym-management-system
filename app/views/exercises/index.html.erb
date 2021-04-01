@@ -1,30 +1,42 @@
 <%= render partial: "layouts/sidebar" %>
-<div class="container mt-5 mb-5">
-  <div class="d-flex justify-content-center row">
-    <div class="col-md-10">
+<div class = "container mt-5 mb-5">
+  <div class = "d-flex justify-content-center row">
+    <div class = "col-md-10">
       <% @exercises.each do |exercise| %>
-        <div class="row p-2 bg-white border rounded">
-          <div class="col-md-7 mt-1">
+        <div class = "row p-2 bg-white border rounded">
+          <div class = "col-md-7 mt-1">
             <h4><%= exercise.name %></h4>
-            <div class="d-flex flex-row">
-              <div class="mt-1 mb-1 spec-1">
-                <span class="dot"></span><span><%= exercise.description %><br></span>
+            <div class = "d-flex flex-row">
+              <div class = "mt-1 mb-1 spec-1">
+                <span class = "dot"></span><span><%= exercise.description %><br></span>
               </div>
             </div>
           </div>
-          <div class="align-items-center align-content-center col-md-5 border-left mt-1">
-            <div class="d-flex flex-row align-items-center">
-              <h4 class="mr-1">Rs. <%= exercise.price %></h4>
+          <div class = "align-items-center align-content-center col-md-5 border-left mt-1">
+            <div class = "d-flex flex-row align-items-center">
+              <h4 class = "mr-1">Rs. <%= exercise.price %></h4>
             </div>
-            <div class="d-flex flex-row mt-2 spacing">              
-              <button class="btn btn-outline-primary btn-sm col-sm-5" type="button"><%= link_to "Edit", edit_exercise_path(exercise.id) %></button>
+            <div class = "d-flex flex-row mt-2 spacing">              
+              <button class = "btn btn-outline-primary btn-sm col-sm-6" type = "button"><%= link_to "Edit", edit_exercise_path(exercise.id) %></button>
               <div class="col-sm-1"></div>
-              <button class="btn btn-outline-primary btn-sm col-sm-5" type="button"><%= link_to "Delete", exercise_path(exercise.id), method: :delete %></button>
+              <button class="btn btn-outline-primary btn-sm col-sm-5" type = "button"><%= link_to "Delete", exercise_path(exercise.id), method: :delete %></button>
+            </div>
+            <div class = "d-flex flex-column mt-4">
+              <% if current_user.in_cart?(exercise) %>
+                <button class = "btn btn-primary btn-sm " type = "button"><%= link_to "Remove from Cart", destroy_exercise_in_cart_path(exercise.id), method: :delete, class: "textcolor" %>
+                </button>
+              <% else %>
+                <button class = "btn btn-primary btn-sm " type = "button"><%= link_to "Add to Cart", add_to_cart_path(exercise.id) , method: :post, class: "textcolor" %>
+                </button>
+              <% end %>
             </div>
           </div>
         </div>
         <br>
       <% end %>
+      <%= render partial: "layouts/show_notice" %>
+      <button class="btn btn-light btn-sm float-left"><%= link_to "Checkout cart", cart_path(session[:user_id]) %></button>
       <button class="btn btn-light btn-sm float-right"><%= link_to "Add new Exercise", new_exercise_path %></button>
     </div>
   </div>
+</div>

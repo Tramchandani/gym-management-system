@@ -32,6 +32,9 @@ gem "figaro"
 
 gem 'devise'
 
+#gem 'sidekiq', '~> 6.1.3'
+>>>>>>> e1940425261eb89aef59e2cb7e42df5b92a43440
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

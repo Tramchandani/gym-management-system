@@ -1,9 +1,9 @@
 <%= render partial: "layouts/sidebar" %>
 <h1> Edit password </h1>
-<div class = "form-container">    
+<div class = "form-container">
   <%= form_for :add_user_img , url: :upload_image do |form| %>
     <%= form.label :images %>
-    <%= form.file_field :images %>   
+    <%= form.file_field :images %>
     <%= form.submit "Upload", class: 'btn btn-primary btn-block' %>
   <% end %>
   <%= link_to "back", user_path(current_user.id) %>

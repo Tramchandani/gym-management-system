@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   get 'users/images/:id', to: 'users#all_images', as: 'all_images'
   delete 'users/images/:id', to: 'users#delete_image', as: 'delete_image'
   resources :exercises
+  post 'carts/add_to_cart/:id', to: 'carts#add_to_cart', as: 'add_to_cart'
+  get 'carts/:id/cart', to: 'carts#index', as: 'cart'
+  delete 'carts/destroy/:id', to: 'carts#destroy', as: 'destroy_exercise_in_cart'
 end
