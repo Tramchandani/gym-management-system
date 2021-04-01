@@ -6,5 +6,5 @@
     <%= form.file_field :images %>   
     <%= form.submit "Upload", class: 'btn btn-primary btn-block' %>
   <% end %>
-  <%= link_to "back", user_path(session[:user_id]) %>
+  <%= link_to "back", user_path(current_user.id) %>
 </div>

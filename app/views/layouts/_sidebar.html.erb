@@ -2,25 +2,19 @@
   <div class = "sidebar"><small class="text-muted pl-3">User</small>
     <ul>
       <li>
-        <%= link_to user_path(session[:user_id]) do %>
+        <%= link_to user_path(current_user.id) do %>
           <i class = "zmdi zmdi-account-o"> </i> 
           View Profile
         <% end %>
       </li>
       <li>
-        <%= link_to edit_user_path(session[:user_id]) do %>
+        <%= link_to edit_user_registration_path(current_user.id) do %>
           <i class = "zmdi zmdi-border-color"> </i> 
           Edit Profile
         <% end %>
       </li>
       <li>
-        <%= link_to edit_password_path(session[:user_id]) do %>
-          <strong><i class="zmdi zmdi-lock"> </i></strong>
-          Edit Password
-        <% end %>
-      </li>
-      <li>
-        <%= link_to all_images_path(session[:user_id]) do %>
+        <%= link_to all_images_path(current_user.id) do %>
           <i class = "zmdi zmdi-book-image"> </i>
           Image Gallery
         <% end %>
@@ -32,7 +26,7 @@
         <% end %>
       </li>
       <li>
-        <%= link_to logout_path do %>
+        <%= link_to destroy_user_session_path, method: :delete do %>
           <i class = "zmdi zmdi-long-arrow-return"> </i>
           Logout
         <% end %>

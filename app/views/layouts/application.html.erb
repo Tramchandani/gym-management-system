@@ -18,6 +18,9 @@
           </div> 
         </div>
         <%= render partial: 'layouts/show_notice' %>
+        <% if alert %>
+          <p class="sml"><%= alert %></p>
+        <% end %>
       </div>
     </div>
   </body>
