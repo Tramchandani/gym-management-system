@@ -13,6 +13,7 @@ class User < ApplicationRecord
     cart = self.cart 
     cart.exercises.exists?(exercise.id)
   end
+  after_create :send_mail
 
   private
 
@@ -22,5 +23,8 @@ class User < ApplicationRecord
 
   def create_user_cart
     user.create_cart
+
+  def send_mail
+    EmailJob.perform_later self
   end
 end
