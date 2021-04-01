@@ -16,9 +16,4 @@ module ApplicationHelper
     @full_address.concat(address.street).concat(" ").concat(address.city).concat(", ")
     @full_address.concat(address.state)
   end
-
-  def in_cart?(exercise)
-    cart = User.find_by_id(session[:user_id]).cart
-    cart.exercises.exists?(exercise.id)
-  end
 end
