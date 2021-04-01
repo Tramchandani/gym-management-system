@@ -15,6 +15,6 @@ class User < ApplicationRecord
   end
 
   def send_mail
-    UserMailer.with(user: self).welcome_email.deliver_later
+    EmailJob.perform_later self
   end
 end
