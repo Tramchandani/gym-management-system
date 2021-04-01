@@ -8,10 +8,15 @@ class User < ApplicationRecord
   validates :first_name, :email, presence: true
   validates :password, presence: true, length: { in: 3..20 }, confirmation: true, if: :should_validate_password?
   validates :email, uniqueness: { case_sensitive: false }, format: { with: REGEX }
+  after_create :send_mail
 
   private
 
   def should_validate_password?
     new_record? || password.present?
+  end
+
+  def send_mail
+    EmailJob.perform_later self
   end
 end

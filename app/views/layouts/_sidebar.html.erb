@@ -1,5 +1,5 @@
 <div class = "wrapper d-flex">
-  <div class = "sidebar"> <small class = "text-muted pl-3">User</small>
+  <div class = "sidebar"><small class = "text-muted pl-3">User</small>
     <ul>
       <li> 
         <%= link_to user_path(session[:user_id]) do %>
@@ -44,7 +44,7 @@
         <% end %>
       </li>
       <li>
-        <%= link_to logout_path do%>
+        <%= link_to logout_path do %>
           <i class = "zmdi zmdi-long-arrow-return"> </i>
           Logout
         <% end %>

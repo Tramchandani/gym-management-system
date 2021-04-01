@@ -1,10 +1,9 @@
 class AddressesController < ApplicationController
-
   before_action :current_address, except: %i[new create]
 
   def new
     @user = current_user
-    @address = Address.new
+    @address = @user.addresses.new
   end
 
   def create
@@ -23,7 +22,7 @@ class AddressesController < ApplicationController
   def update
     if @address.update(address_params)
       flash[:notice] = "Address Updated"
-      redirect_to user_path(session[:user_id])
+      redirect_to user_path(current_user.id)
     else
       flash[:notice] = "Address Updation failed"
       render :edit
@@ -46,6 +45,7 @@ class AddressesController < ApplicationController
   end
 
   def current_address
-    @address = Address.find_by_id(id_param[:id])
+    @address = current_user.addresses.find_by_id(id_param[:id])
+    render 'error' and return if @address.nil?
   end
 end
