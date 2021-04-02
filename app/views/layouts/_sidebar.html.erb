@@ -1,7 +1,7 @@
 <div class = "wrapper d-flex">
   <div class = "sidebar"><small class = "text-muted pl-3">User</small>
     <ul>
-      <li>
+      <li> 
         <%= link_to user_path(session[:user_id]) do %>
           <i class = "zmdi zmdi-account-o"> </i> 
           View Profile
@@ -33,8 +33,14 @@
       </li>
       <li>
         <%= link_to cart_path(session[:user_id]) do %>
-          <i class = "zmdi zmdi-shopping-cart"> </i>
+          <i class = "zmdi zmdi-shopping-cart-plus"> </i>
           Cart
+        <% end %>
+      </li>
+      <li>
+        <%= link_to invoice_history_path(session[:user_id]) do %>
+          <i class = "zmdi zmdi-shopping-cart"> </i>
+          Invoice History
         <% end %>
       </li>
       <li>
