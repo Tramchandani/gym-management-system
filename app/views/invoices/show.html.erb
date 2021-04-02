@@ -17,17 +17,15 @@
             </tr>
           </thead>
           <tbody>
-            <% num = 1 %>
-            <% @invoice.exercises.each do |exercise| %>
+            <% @invoice.exercises.each_with_index do |exercise, index| %>
               <tr>
-                <td class = "center"><%= num %></td>
+                <td class = "center"><%= index %></td>
                 <td class = "left strong"><%= exercise.name %></td>
                 <td class = "left"><%= exercise.description %></td>              
                 <td class = "right"></td>
                 <td class = "center"></td>
                 <td class = "right">Rs. <%= exercise.price %></td>
               </tr>
-              <% num +=1 %>
             <% end %>
           </tbody>
         </table>

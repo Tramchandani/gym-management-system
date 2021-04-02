@@ -17,6 +17,6 @@ Rails.application.routes.draw do
   delete 'carts/destroy/:id', to: 'carts#destroy', as: 'destroy_exercise_in_cart'
   resources :exercises
   post 'invoices/subscribe', to: 'invoices#subscribe', as: 'subscribe'
-  get 'invoices/show/:id', to: 'invoices#show', as: 'show_invoice'
+  get 'invoices/:id', to: 'invoices#show', as: 'show_invoice'
   get 'invoices/:id/invoice_history', to: 'invoices#index', as: 'invoice_history'
 end

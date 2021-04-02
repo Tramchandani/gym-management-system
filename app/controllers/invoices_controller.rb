@@ -1,8 +1,8 @@
 class InvoicesController < ApplicationController
   def subscribe
     @invoice = current_user.invoices.new
-    @invoice.user_id = current_user.cart.user_id
     amt = 0
+    @invoice.save
     current_user.cart.exercises.each do |exercise|
       @invoice_item = @invoice.invoice_items.new
       @invoice_item.price = exercise.price
