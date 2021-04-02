@@ -93,3 +93,5 @@ class UsersController < ApplicationController
     @user.update(password: password_params[:password], password_confirmation: password_params[:password_confirmation])
   end
 end
+
+#bootstrap/dist/css/bootstrap
