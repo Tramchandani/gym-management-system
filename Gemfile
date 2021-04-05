@@ -30,6 +30,10 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem "figaro"
 
+gem 'devise'
+
+#gem 'sidekiq', '~> 6.1.3'
+
 gem 'rexml', '~> 3.2', '>= 3.2.4'
 
 group :development, :test do

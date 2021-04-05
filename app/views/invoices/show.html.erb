@@ -19,7 +19,7 @@
           <tbody>
             <% @invoice.exercises.each_with_index do |exercise, index| %>
               <tr>
-                <td class = "center"><%= index %></td>
+                <td class = "center"><%= index + 1 %></td>
                 <td class = "left strong"><%= exercise.name %></td>
                 <td class = "left"><%= exercise.description %></td>              
                 <td class = "right"></td>

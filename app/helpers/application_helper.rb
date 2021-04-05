@@ -7,10 +7,6 @@ module ApplicationHelper
     end
   end
 
-  def check_user?
-    session[:user_id] && current_user
-  end
-
   def full_address(address)
     @full_address = address.house_number.to_s.concat(", ").concat(address.colony).concat(" ")
     @full_address.concat(address.street).concat(" ").concat(address.city).concat(", ")

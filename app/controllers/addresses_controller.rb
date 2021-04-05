@@ -1,13 +1,12 @@
 class AddressesController < ApplicationController
   before_action :current_address, except: %i[new create]
+  before_action :set_current_user, except: :destroy
 
   def new
-    @user = current_user
     @address = @user.addresses.new
   end
 
   def create
-    @user = current_user
     if @user.addresses.create(address_params)
       flash[:notice] = "Address added"
       redirect_to user_path(@user.id)
@@ -31,7 +30,7 @@ class AddressesController < ApplicationController
 
   def destroy
     @address.destroy
-    redirect_to user_path(session[:user_id])
+    redirect_to user_path(current_user.id)
   end
 
   private

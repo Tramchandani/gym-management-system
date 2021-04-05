@@ -23,18 +23,17 @@
           </tr>
         </thead>
         <tbody>
-          <% @user = User.find_by_id(session[:user_id]) %>
           <% @invoices.each_with_index do |invoice, index| %>
             <tr>
-              <td><%= index %></td>
+              <td><%= index + 1 %></td>
               <td>
-                <% if @user.images.attached? %>
-                  <%= image_tag @user.images.last, class: "rounded-circle dimensions2"%>
+                <% if current_user.images.attached? %>
+                  <%= image_tag current_user.images.last, class: "rounded-circle dimensions2"%>
                 <% else %>
                   <%= image_tag "default-profile-picture.jpg", class: "rounded-circle dimensions2" %>
                 <% end %>
               </td>
-              <td><%= @user.first_name %></td>                        
+              <td><%= current_user.first_name %></td>                        
               <td>#<%= invoice.id %></td>
               <td>Rs. <%= invoice.amount %></td>
               <td><%= link_to "see invoice", show_invoice_path(invoice.id) %></td>

@@ -35,7 +35,7 @@
         <br>
       <% end %>
       <%= render partial: "layouts/show_notice" %>
-      <button class="btn btn-light btn-sm float-left"><%= link_to "Checkout cart", cart_path(session[:user_id]) %></button>
+      <button class="btn btn-light btn-sm float-left"><%= link_to "Checkout cart", cart_path(current_user.id) %></button>
       <button class="btn btn-light btn-sm float-right"><%= link_to "Add new Exercise", new_exercise_path %></button>
     </div>
   </div>

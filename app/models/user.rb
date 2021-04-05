@@ -1,6 +1,7 @@
 class User < ApplicationRecord
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
   REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  has_secure_password
   has_many :addresses, dependent: :destroy
   has_many_attached :images, dependent: :destroy
   has_one :cart, dependent: :destroy
@@ -15,7 +16,7 @@ class User < ApplicationRecord
     cart = self.cart 
     cart.exercises.exists?(exercise.id)
   end
-
+  
   private
 
   def should_validate_password?
