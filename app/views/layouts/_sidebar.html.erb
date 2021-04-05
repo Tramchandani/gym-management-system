@@ -26,6 +26,18 @@
         <% end %>
       </li>
       <li>
+        <%= link_to cart_path(current_user.id) do %>
+          <i class = "zmdi zmdi-shopping-cart-plus"> </i>
+          Cart
+        <% end %>
+      </li>
+      <li>
+        <%= link_to invoice_history_path(current_user.id) do %>
+          <i class = "zmdi zmdi-shopping-cart"> </i>
+          Invoice History
+        <% end %>
+      </li>
+      <li>
         <%= link_to destroy_user_session_path, method: :delete do %>
           <i class = "zmdi zmdi-long-arrow-return"> </i>
           Logout
