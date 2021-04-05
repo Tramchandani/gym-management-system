@@ -52,18 +52,45 @@ ActiveRecord::Schema.define(version: 2021_03_23_052501) do
     t.string "state"
   end
 
+  create_table "cart_items", force: :cascade do |t|
+    t.integer "cart_id"
+    t.integer "exercise_id"
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.integer "user_id"
+  end
+
   create_table "exercises", force: :cascade do |t|
     t.string "name"
     t.float "price"
     t.text "description"
   end
 
+  create_table "invoice_items", force: :cascade do |t|
+    t.integer "invoice_id"
+    t.integer "exercise_id"
+    t.float "price"
+  end
+
+  create_table "invoices", force: :cascade do |t|
+    t.integer "user_id"
+    t.float "amount"
+  end
+
   create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.string "first_name"
     t.string "last_name"
     t.date "dob"
-    t.string "email"
-    t.string "password_digest"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

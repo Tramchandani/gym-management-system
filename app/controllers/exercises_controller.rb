@@ -1,5 +1,6 @@
 class ExercisesController < ApplicationController
   before_action :load_exercise, except: %i[new create index]
+  before_action :authenticate_user!
 
   def index
     @exercises = Exercise.all

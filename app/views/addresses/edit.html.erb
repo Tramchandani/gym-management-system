@@ -5,5 +5,5 @@
     <%= render partial: "shared/address_form", locals: { form: form } %>
     <%= form.submit "Update address", data: { disable_with: "Updating..." }, class: 'btn btn-primary btn-block' %>
   <% end %>
-  <%= link_to "back", user_path(session[:user_id]), id: 'back' %>
+  <%= link_to "back", user_path(@user.id) %>
 </div> 
