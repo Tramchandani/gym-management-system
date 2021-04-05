@@ -12,7 +12,7 @@ import $ from 'jquery'
 window.jQuery = $
 window.$ = $
 
-//import 'bootstrap'
+import 'bootstrap'
 //import '../stylesheets/application'
 
 Rails.start()

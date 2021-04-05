@@ -17,7 +17,7 @@
                   <%= form_for :add_user_img , url: :upload_image, remote: true do |form| %>
                     <%= form.file_field :images, style: "padding-left:50px;" %>   
                     <%= form.submit "Upload", class: 'btn btn-primary ' %>
-                <button class = "btn btn-sm btn-outline-primary"><%= link_to "Add new photo", add_image_path(current_user.id) %>
+                    <button class = "btn btn-sm btn-outline-primary"><%= link_to "Add new photo", add_image_path(current_user.id) %>
                   <% end %>
                 </div>
                 <div id = "img-button" >
@@ -73,7 +73,7 @@
                       <%= link_to edit_address_path(address.id) do %>
                         <i class = "zmdi zmdi-border-color"></i>                              
                       <% end %>
-                      <%= link_to address_path(address.id), remote: true, method: :delete, data: { confirm: 'Are you sure?' }, class: 'address'  do %>
+                      <%= link_to address_path(address.id), remote: true, method: :delete, data: { confirm: 'Are you sure?' },  class: "address delete_it" do %>
                         <i class = "zmdi zmdi-delete" ></i> 
                       <% end %>
                     </p>
