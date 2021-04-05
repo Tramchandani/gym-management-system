@@ -171,11 +171,9 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (2.1.1)
-<<<<<<< HEAD
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
-=======
     rexml (3.2.4)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
@@ -194,7 +192,6 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.10.2)
->>>>>>> 1989d931f8fccf56a0621296065b486ee521db0e
     rubyzip (2.3.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -258,12 +255,9 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
-<<<<<<< HEAD
   devise
-=======
   database_cleaner-active_record
   factory_bot_rails
->>>>>>> 1989d931f8fccf56a0621296065b486ee521db0e
   figaro
   jbuilder (~> 2.7)
   listen (~> 3.3)
