@@ -54,6 +54,5 @@ RSpec.describe "ExercisesControllers", type: :request do
       expect(response).to redirect_to(exercises_path)
     end
   end
-
 end
 

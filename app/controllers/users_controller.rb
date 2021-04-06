@@ -38,5 +38,3 @@ class UsersController < ApplicationController
     params.permit(:id)
   end
 end
-
-#bootstrap/dist/css/bootstrap
