@@ -8,7 +8,7 @@
       <% @user.images.each do |img| %>
         <div class = "col-lg-3 col-md-4 col-xs-6 thumb">
           <%= image_tag img, class: "zoom img-fluid " %>
-          <button class = "del btn"><%= link_to "Delete Image", delete_image_path(img.signed_id), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <button class = "del btn"><%= link_to "Delete Image", delete_image_path(img.signed_id), method: :delete, remote: true, data: { confirm: 'Are you sure?' },  class: "delete_it" %>
           </button>
         </div>
       <% end %>

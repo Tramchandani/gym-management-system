@@ -11,3 +11,13 @@ if(jQuery().fancybox) {
     });
   });
 }
+
+$(document).on('turbolinks:load', function () {
+  $('#click-here').on('click', function() { 
+    $('#img-form').show();
+    $('#img-button').hide();
+  });
+  $(".delete_it").on('ajax:success', function() {
+    alert("Deleted!");
+  })
+});

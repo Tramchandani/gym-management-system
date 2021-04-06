@@ -30,7 +30,10 @@ class AddressesController < ApplicationController
 
   def destroy
     @address.destroy
-    redirect_to user_path(current_user.id)
+    respond_to do |format|
+      format.html { redirect_to user_path(current_user.id) }
+      format.js { render layout: false }
+    end
   end
 
   private
